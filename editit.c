@@ -8,7 +8,7 @@ int main()
     printf("Made by shourdev,open source and contributions from many developers! https://github.com/shourdev/editit \n");
     printf("Enter the name of the file you want to open or create: ");
     char file_name[100];
-    scanf("%s", file_name);
+    fgets(file_name, 99, stdin);
     FILE *file = fopen(file_name, "r+"); // Open the file in read & write mode
     if (file == NULL)
     {
@@ -53,8 +53,8 @@ int main()
                     l++;
                 }
             }
-            i = j+1;
-            fseek(file, j+1, SEEK_SET);
+            i = j;
+            fseek(file, j, SEEK_SET);
         }
         else if (strcmp(input, ":catit") == 0)
         {
@@ -69,6 +69,7 @@ int main()
         else
         {
             fputs(input, file); // Write the input to the file
+            fprintf(file, "\n");
             i += strlen(input);
         }
     }
