@@ -4,8 +4,8 @@
 
 int main()
 {
-    printf("Welcome to editit 1.1.0\n");
-    printf("Made by shourdev,open source and contributions from many developers! https://github.com/shourdev/editit \n");
+    printf("Welcome to editit 1.1.1\n");
+    printf("Made by Shourjjo Majumder,open source and contributions from many developers! https://github.com/shourdev/editit \n");
     printf("Enter the name of the file you want to open or create: ");
     char file_name[100];
     fgets(file_name, 99, stdin);
