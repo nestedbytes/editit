@@ -4,21 +4,25 @@
 
 int main()
 {
-    printf("Welcome to editit 1.1.1\n");
-    printf("Made by Shourjjo Majumder,open source and contributions from many developers! https://github.com/shourdev/editit \n");
+ printf("Welcome to editit 2.0.0\n");
+    printf("Made by Shourjjo Majumder, open source and contributions from many developers! https://github.com/shourdev/editit\n");
     printf("Enter the name of the file you want to open or create: ");
     char file_name[100];
-    fgets(file_name, 99, stdin);
-    FILE *file = fopen(file_name, "r+"); // Open the file in read & write mode
+    fgets(file_name, sizeof(file_name), stdin);
+
+    // Remove newline character
+    file_name[strcspn(file_name, "\n")] = '\0';
+
+    FILE *file = fopen(file_name, "r+");
     if (file == NULL)
     {
-        file = fopen(file_name, "w+"); // Create the file in read & write mode
-        if(file == NULL){
+        file = fopen(file_name, "w+");
+        if (file == NULL)
+        {
             printf("Error opening/creating file\n");
             return 1;
         }
     }
-
     printf("\nFile Content:\n");
     char c;
     while ((c = fgetc(file)) != EOF)
